@@ -46,22 +46,14 @@ app.get("/api/:dateInput?", function(req,res){
     date = new Date(); 
   }
   else{
-    //simple regx that checks yyyy-mm-dd
-    let dateFormate= /\d{4}-\d{2}-\d{2}/.test(dateInput);
-    // console.log(dateFormate);
-    // console.log(typeof(dateInput));
-    if(dateFormate){
-      //the input will e string we have to converted it to int
-      date = new Date(parseInt(dateInput));
-    }
-    else{
+    
       // console.log(new Date(parseInt(dateInput)));
       if(!isNaN(dateInput)){
       date = new Date(parseInt(dateInput));
       }else{
       date = new Date(dateInput);
       }
-    }
+    
 
     
   }
