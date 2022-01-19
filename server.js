@@ -36,12 +36,7 @@ app.get("/", function (req, res) {
 // });
 
 //api endpoint for timestamp
-
-app.get("/api/timestamp/", function (req, res) {
-  res.json({'unix': Date.now(), 'utc': Date()});
-});
-
-app.get("/api/:dateInput", function(req,res){
+app.get("/api/:dateInput?", function(req,res){
   //let's store the input in some const
   const dateInput=req.params.dateInput;
   let date;
@@ -51,22 +46,15 @@ app.get("/api/:dateInput", function(req,res){
     date = new Date(); 
   }
   else{
-    //simple regx that checks yyyy-mm-dd
-    let dateFormate= /\d{4}-\d{2}-\d{2}/.test(dateInput);
-    // console.log(dateFormate);
-    // console.log(typeof(dateInput));
-    if(dateFormate){
-      //the input will e string we have to converted it to int
-      date = new Date(parseInt(dateInput));
-    }
-    else{
+    
+    
       // console.log(new Date(parseInt(dateInput)));
       if(!isNaN(dateInput)){
       date = new Date(parseInt(dateInput));
       }else{
       date = new Date(dateInput);
       }
-    }
+    
 
     
   }
