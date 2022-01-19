@@ -61,7 +61,7 @@ app.get("/api/:dateInput?", function(req,res){
   // console.log(date);
 
   // sending the json response 
-  if(date.toUTCString() === "Invalid Date"){
+  if(date.toString() === "Invalid Date"){
     res.json({
       'error':date.toUTCString()
     })
