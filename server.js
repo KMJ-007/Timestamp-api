@@ -36,8 +36,12 @@ app.get("/", function (req, res) {
 // });
 
 //api endpoint for timestamp
-//the ? is to take input after api/ not to take as route
-app.get("/api/:dateInput?", function(req,res){
+
+app.get("/api/timestamp/", function (req, res) {
+  res.json({'unix': Date.now(), 'utc': Date()});
+});
+
+app.get("/api/:dateInput", function(req,res){
   //let's store the input in some const
   const dateInput=req.params.dateInput;
   let date;
