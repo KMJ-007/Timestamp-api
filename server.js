@@ -56,8 +56,12 @@ app.get("/api/:dateInput?", function(req,res){
       date = new Date(parseInt(dateInput));
     }
     else{
-      // console.log(dateInput);
+      // console.log(new Date(parseInt(dateInput)));
+      if(!isNaN(dateInput)){
+      date = new Date(parseInt(dateInput));
+      }else{
       date = new Date(dateInput);
+      }
     }
 
     
