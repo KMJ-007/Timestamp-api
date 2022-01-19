@@ -76,8 +76,8 @@ app.get("/api/:dateInput?", function(req,res){
   }
   else{
   res.json({
-    'unix':date.getTime(),
-    'utc':date.toUTCString() 
+    unix:date.getTime(),
+    utc:date.toUTCString() 
   })
 }
 })
